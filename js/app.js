@@ -101,3 +101,36 @@ function recalcularYRenderizar() {
     total
   });
 }
+// Control de navegación por pestañas (Calculadora / Productos)
+const linkCalculadora = document.querySelector('#link-calculadora');
+const linkProductos = document.querySelector('#link-productos');
+const secciones = document.querySelectorAll('.vista-seccion');
+
+function cambiarVista(vistaId) {
+  secciones.forEach(seccion => {
+    if (seccion.getAttribute('idvista') === vistaId) {
+      seccion.classList.add('activa');
+    } else {
+      seccion.classList.remove('activa');
+    }
+  });
+
+  // Actualizar clases activas en la barra de navegación
+  if (vistaId === 'calculadora') {
+    linkCalculadora.classList.add('activo');
+    linkProductos.classList.remove('activo');
+  } else {
+    linkProductos.classList.add('activo');
+    linkCalculadora.classList.remove('activo');
+  }
+}
+
+linkCalculadora.addEventListener('click', (e) => {
+  e.preventDefault();
+  cambiarVista('calculadora');
+});
+
+linkProductos.addEventListener('click', (e) => {
+  e.preventDefault();
+  cambiarVista('productos');
+});

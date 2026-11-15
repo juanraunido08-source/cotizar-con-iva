@@ -405,3 +405,20 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   font-weight: bold;
 }
+/* Ocultar por defecto las secciones de vistas separadas */
+.vista-seccion {
+  display: none;
+}
+
+/* Mostrar únicamente la sección que tenga la clase activa */
+.vista-seccion.activa {
+  display: block;
+}
+
+/* En pantallas grandes (computador), si prefieres que se muestren ambas a la vez puedes dejarlo o usar este comportamiento de pestañas. Como el profesor pidió separarlas por la barra, controlamos con la clase .activa */
+
+.nav-enlaces a.activo {
+  color: #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+  padding-bottom: 2px;
+}

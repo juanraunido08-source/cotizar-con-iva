@@ -7,10 +7,9 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Enlace de accesibilidad para teclado -->
   <a href="#contenido-principal" class="saltar">Saltar al contenido</a>
 
-  <!-- 1. Barra superior informativa -->
+  <!-- Barra superior informativa -->
   <div class="barra-superior">
     <div class="barra-superior-contenedor">
       <div class="info-pais">
@@ -22,16 +21,10 @@
         <span class="separador">•</span>
         <span>Salario mínimo <strong>$1.750.905</strong> al 14 nov 2026</span>
       </div>
-      <div class="acciones-superiores">
-        <button type="button" class="btn-accesibilidad">A+ Letra grande</button>
-        <div class="selector-pais">
-          <span>🇨🇴 Colombia</span>
-        </div>
-      </div>
     </div>
   </div>
 
-  <!-- 2. Barra de navegación principal -->
+  <!-- Barra de navegación con enlaces interactivos -->
   <nav class="navbar" aria-label="Navegación principal">
     <div class="nav-contenedor">
       <div class="nav-marca">
@@ -39,23 +32,20 @@
         <span class="badge-pais">🇨🇴 Colombia</span>
       </div>
       <ul class="nav-enlaces">
-        <li><a href="#contenido-principal">Calculadora</a></li>
-        <li><a href="#form-producto">Productos</a></li>
+        <li><a href="#calculadora" id="link-calculadora" class="activo">Calculadora</a></li>
+        <li><a href="#productos" id="link-productos">Productos</a></li>
       </ul>
-      <div class="nav-herramientas">
-        <button type="button" class="btn-icono" aria-label="Cambiar modo oscuro">☀️</button>
-      </div>
     </div>
   </nav>
 
   <header class="header">
     <h1>Cotizador Comercial con IVA</h1>
-    <p>Gestión de productos, descuentos y cálculo fiscal en tiempo real</p>
+    <p>Gestión de productos, descuentos y cálculo fiscal</p>
   </header>
 
   <main id="contenido-principal" class="contenedor">
-    <!-- Panel izquierdo: Formulario -->
-    <section class="panel">
+    <!-- Vista 1: Panel izquierdo (Calculadora / Formulario) -->
+    <section idvista="calculadora" class="panel vista-seccion activa">
       <h2>Agregar Producto</h2>
       <form id="form-producto" novalidate>
         <div class="campo">
@@ -88,8 +78,8 @@
       </form>
     </section>
 
-    <!-- Panel derecho: Resumen y tabla relacionada -->
-    <section class="panel resumen-panel">
+    <!-- Vista 2: Panel derecho (Productos / Tabla y Totales) -->
+    <section idvista="productos" class="panel resumen-panel vista-seccion">
       <h2>Detalle de la Cotización</h2>
       
       <div class="tabla-contenedor">
@@ -97,13 +87,13 @@
           <thead>
             <tr>
               <th>Producto</th>
-              <th>Cant.</th>
-              <th>Subtotal</th>
-              <th>Acción</th>
+              <th class="text-center">Cant.</th>
+              <th class="text-right">Subtotal</th>
+              <th class="text-center">Acción</th>
             </tr>
           </thead>
           <tbody id="lista-productos">
-            <!-- Los datos ingresados a la izquierda se inyectan aquí dinámicamente -->
+            <!-- Dinámico -->
           </tbody>
         </table>
       </div>
